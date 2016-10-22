@@ -1,6 +1,21 @@
 import java.awt.Point;
 
-public class Boat implements Transmitter {
+public class Boat extends Transmitter {
+	public Point velocity;
+	
+	public Boat(Point position, Point velocity, String id){
+		this.position = position;
+		this.id = id;
+		this.velocity = velocity; 
+	}
+	
+	public void updatePosition(){
+		
+	}
+	
+	public void changeDirection(Point newVelocity){
+		
+	}
 
 	@Override
 	public void send(Message message) {

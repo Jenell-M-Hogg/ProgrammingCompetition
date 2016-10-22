@@ -1,6 +1,6 @@
 import java.awt.Point;
 
-public class Buoy implements Transmitter {
+public class Buoy extends Transmitter {
 
 	@Override
 	public void send(Message message) {
