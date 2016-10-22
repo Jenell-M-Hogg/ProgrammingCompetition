@@ -19,14 +19,15 @@ public class Boat extends Transmitter {
 	}
 
 	@Override
-	public void send(Message message) {
-		// TODO
+	public Message send(Message message) {
+		return message;
+		
 
 	}
 
 	@Override
 	public void receive(Message message) {
-		// TODO Auto-gen
+		// TODO
 
 	}
 

@@ -19,7 +19,8 @@ public class Buoy extends Transmitter {
 	}
 	
 	@Override
-	public void send(Message message) {
+	public Message send(Message message) {
+		return message;
 		// TODO Auto-generated method stub
 
 	}

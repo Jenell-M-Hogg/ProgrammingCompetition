@@ -2,7 +2,7 @@ import java.awt.Point;
 
 public abstract class Transmitter {
 	
-	public abstract void send(Message message);
+	public abstract Message send(Message message);
 	public abstract void receive(Message message); 
 	
 	public Point position = new Point(0,0);
