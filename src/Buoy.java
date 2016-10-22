@@ -2,6 +2,7 @@ import java.awt.Point;
 
 public class Buoy extends Transmitter {
 	boolean needsMaintenance = false;
+	Message[] messages = new Message[3];
 
 	public Buoy(String id, int range, Point position){
 		this.id = id; 
@@ -17,19 +18,8 @@ public class Buoy extends Transmitter {
 	public void repair(){
 		needsMaintenance = false;
 	}
-	
-	@Override
-	public Message send(Message message) {
-		return message;
-		// TODO Auto-generated method stub
 
-	}
 
-	@Override
-	public void receive(Message message) {
-		// TODO Auto-generated method stub
-
-	}
 
 	@Override
 	public boolean messageInRange(Point sendingSourcePosition) {
