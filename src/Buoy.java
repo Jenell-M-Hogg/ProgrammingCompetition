@@ -1,15 +1,32 @@
 import java.awt.Point;
 
-public class Buoy implements Transmitter {
+public class Buoy extends Transmitter {
+	boolean needsMaintenance = false;
 
+	public Buoy(String id, int range, Point position){
+		this.id = id; 
+		this.transmissionRange = range;
+		this.position = position;
+		
+	}
+	
+	public void breakDown(){
+		needsMaintenance = true;
+	}
+	
+	public void repair(){
+		needsMaintenance = false;
+	}
+	
 	@Override
-	public void send(Message message) {
+	public Message send(Message message) {
+		return message;
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void receive() {
+	public void receive(Message message) {
 		// TODO Auto-generated method stub
 
 	}
