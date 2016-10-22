@@ -20,13 +20,13 @@ public class Boat extends Transmitter {
 
 	@Override
 	public void send(Message message) {
-		// TODO Auto-generated method stub
+		// TODO
 
 	}
 
 	@Override
-	public void receive() {
-		// TODO Auto-generated method stub
+	public void receive(Message message) {
+		// TODO Auto-gen
 
 	}
 
