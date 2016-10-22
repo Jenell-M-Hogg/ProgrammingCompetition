@@ -18,18 +18,6 @@ public class Boat extends Transmitter {
 		this.velocity = newVelocity; 
 	}
 
-	@Override
-	public Message send(Message message) {
-		return message;
-		
-
-	}
-
-	@Override
-	public void receive(Message message) {
-		// TODO
-
-	}
 
 	@Override
 	public boolean messageInRange(Point sendingSourcePosition) {

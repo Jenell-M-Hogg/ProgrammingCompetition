@@ -69,6 +69,11 @@ public class Message {
 	public void setRange(int range) {
 		this.range = range;
 	}
+
+	public boolean isMaintenance() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 }
 	
