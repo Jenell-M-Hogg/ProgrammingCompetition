@@ -1,5 +1,7 @@
 import java.util.ArrayList;
 
+import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
+
 
 public class Air {
 
@@ -12,24 +14,35 @@ public class Air {
 	public Air()
 	{
 		allMessages = new ArrayList <Message>();
-		boats = new ArrayList <Boat>();
-		boats = new ArrayList <Buoy>();
+		this.boats = new ArrayList <Boat>();
+		this.buoys = new ArrayList <Buoy>();
 		allMessages = new ArrayList <Message>();
 		lockCutoff = 0;
-		
 	}
-	public Message [] localMessageNearMe(Transmitter t){
-	}
-	public void lockForCycle(){
-		
-	}
-	public void unlockForCycle(){
-		
-	}
+	
 	private boolean canSeeMessage(Transmitter t, Message m){
 		
 	}
-	public void sendMessage(Transmitter t, Message m){
-		allMessages.add(m);
+
+	
+	public void getNewMessages()
+	{
+		allMessages.clear();
+		for (int i = 0; i < buoys.length; i++ )
+		{
+			allMessages.add(buoys[i]);
+		}
+		for (int i = 0; i < boats.length; i++ )
+		{
+			allMessages.add(boats[i]);
+		}
+	}
+	
+	public void sendMessages()
+	{
+		for (int i = 0; i < buoys.length; i++ )
+		{
+			
+		}
 	}
 }
