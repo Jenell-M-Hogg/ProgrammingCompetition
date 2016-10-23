@@ -44,9 +44,9 @@ public class EventCreator {
 			int  r_1_50_a = rand.nextInt(50) + 1; // rand 1 to 50
 			int  r_1_50_b = rand.nextInt(50) + 1; // rand 1 to 50
 			Point p1 = new Point(r_1_50_a,r_1_50_b) ; // rand point for position 
+			int v_x=3  , v_y = 3; // boats' velocities 
 			Point p2 = new Point(v_x,v_y) ; // point for position 
 			
-			int v_x=3  , v_y = 3; // boats' velocities 
 			
 			air.boats.add( new Boat(p1,p2,String.valueOf(i),5) ); // create a boat
 			
