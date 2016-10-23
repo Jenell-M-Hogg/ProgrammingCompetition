@@ -12,15 +12,11 @@ public class EventCreator {
 
 	Random rand = new Random();// randomness
 	
-	
+	Air air = new Air(); 
 	int  buoys = 3;//rand.nextInt(10) + 1; // rand 1 to 10
 	int  boats = 1;//rand.nextInt(10) + 1; // rand 1 to 10
-	
-	
-	
-	ArrayList<Buoy> Buoy_array= new ArrayList<Buoy>();
-	ArrayList<Boat> Boat_array= new ArrayList<Boat>();
-	
+	long bigrand = rand.nextInt(90)*30 + 100;
+	int ev_c = 0 ; // events counter
 	
 	public EventCreator(){
 		generateEvent(); // start a new simulation ( EVENT )  
@@ -38,7 +34,7 @@ public class EventCreator {
 			int  r_1_50_b = rand.nextInt(50) + 1; // rand 1 to 50
 			Point p1 = new Point(r_1_50_a,r_1_50_b) ; // rand point for position 
 		
-			Buoy_array.add( new Buoy(p1,String.valueOf(i)); // create a bouy 
+			air.buoys.add( new Buoy(String.valueOf(i),10,p1)) ; // create a bouy 
 			}
 		
 		
@@ -52,18 +48,34 @@ public class EventCreator {
 			
 			int v_x=3  , v_y = 3; // boats' velocities 
 			
-			Boat_array.add( new Boat(p1,p2,String.valueOf(i))); // create a boat
+			air.boats.add( new Boat(p1,p2,String.valueOf(i),5) ); // create a boat
 			
 			}
 		
-		// call air 
 		
-		while ( 1==1)
+		while ( ev_c < bigrand )
+		{ ev_c++ ; // events counter 
+		
+		Point p1 = new Point(rand.nextInt(50)+1,rand.nextInt(50)+1) ; // rand point for position 
+		Message strm = new Message(true, "storm", p1, 25); // storm in some random place 
+		
+		
+		
+		for ( int i = 0 ; i< air.boats.size(); i++)
 		{
 		
-			// inifinte loop 
-			// breaks with stop button from gui 
+		if (  5 > Math.sqrt( Math.pow( (p1.getX()-air.boats.get(i).position.getX()),2)+
+				                     Math.pow((p1.getY()-air.boats.get(i).position.getY()),2)))
+			air.boats.;
+		
 			
+			
+			
+		} // inifinte loop 
+			// breaks with stop button from gui 
+		
+		
+		
 		}
 		
 	}
