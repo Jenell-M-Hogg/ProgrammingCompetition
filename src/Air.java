@@ -25,25 +25,33 @@ public class Air {
 	public void getNewMessages()
 	{
 		allMessages.clear();
-		for (int i = 0; i < buoys.size(); i++ )
+		ArrayList <Transmitter> allTransmitters = new ArrayList <Transmitter>();
+		allTransmitters.addAll(boats);
+		allTransmitters.addAll(buoys);
+		for (int i = 0; i < allTransmitters.size(); i++ )
 		{
-			allMessages.add(buoys.get(i).send());
-		}
-		for (int i = 0; i < boats.size(); i++ )
-		{
-			allMessages.add(boats.get(i).send());
+			Message[] newMessages = buoys.get(i).send();
+			for (Message m : newMessages)
+			{
+				allMessages.add(m);
+			}
 		}
 	}
 	
 	public void sendMessages()
 	{
-		for (int i = 0; i < buoys.size(); i++ )
+		ArrayList <Transmitter> allTransmitters = new ArrayList <Transmitter>();
+		allTransmitters.addAll(boats);
+		allTransmitters.addAll(buoys);
+		for (int i = 0; i < allTransmitters.size(); i++ )
 		{
-			allMessages.add(buoys.get(i).receive());
-		}
-		for (int i = 0; i < buoys.size(); i++ )
-		{
-			allMessages.add(buoys.get(i).receive());
+			for (int j = 0; j < allMessages.size(); j++ )
+			{
+				if (canSeeMessage(allTransmitters.get(i), allMessages.get(j)))
+				{
+					allTransmitters.get(i).receive(allMessages.get(j));
+				}
+			}
 		}
 	}
 }
