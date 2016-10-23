@@ -8,6 +8,7 @@ public class Boat extends Transmitter {
 		this.id = id;
 		this.velocity = velocity;
 		this.transmissionRange = range;
+		this.messages = super.messages;
 	}
 	
 	public void updatePosition(){
