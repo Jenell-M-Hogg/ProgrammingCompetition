@@ -15,10 +15,13 @@ public class ViewController extends JFrame {
 	int rows;
 	int cols;
 	GridLayout grid;
+	private JPanel[][] panelHolder;
 
 	/**
 	 * Launch the application.
 	 */
+	
+
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -47,14 +50,27 @@ public class ViewController extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(grid);
 		
+
+
+		panelHolder = new JPanel[rows][cols]; 
 		//Initialize the grid
 		for(int i = 0; i<rows ; i++){
 			for(int j = 0; j<cols; j++){
 				JPanel m = new JPanel();
 				m.setBackground(Color.blue);
-				contentPane.add(m);
+				panelHolder[i][j] = m;
 			
 			}
+		}
+		
+		this.getContentPane().setLayout(new GridLayout(rows,cols));
+	    	
+
+		for(int m = 0; m < rows; m++) {
+		   for(int n = 0; n < cols; n++) {
+		      panelHolder[m][n] = new JPanel();
+		      this.getContentPane().add(panelHolder[m][n]);
+		   }
 		}
 		
 		contentPane.repaint();
@@ -79,12 +95,31 @@ public class ViewController extends JFrame {
 			Transmitter b = buoys.get(i);
 			if(this.isInRange(b.position)){
 				DrawableItem d = new DrawableItem(b.id, Color.RED);
+				int row = (int) b.position.getX();
+				int col = (int) b.position.getY();
+				panelHolder[row][col] = d;
 				
 				
 				
 			}
 		    
 		}
+		
+		this.refresh();
+		
+	}
+
+	private void refresh() {
+		// TODO Auto-generated method stub
+		this.getContentPane().removeAll();
+		
+		for(int i = 0; i<rows; i++){
+			for(int j = 0; j< cols; j++){
+				this.contentPane.add(panelHolder[i][j]);
+			}
+		}
+		
+		this.repaint();
 		
 	}
 	

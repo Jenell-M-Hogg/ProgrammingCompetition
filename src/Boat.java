@@ -2,12 +2,14 @@ import java.awt.Point;
 
 public class Boat extends Transmitter {
 	public Point velocity;
+	public Message[] messages = new Message[3];
 	
 	public Boat(Point position, Point velocity, String id, int range){
 		this.position = position;
 		this.id = id;
 		this.velocity = velocity;
 		this.transmissionRange = range;
+		this.messages = super.messages;
 	}
 	
 	public void updatePosition(){

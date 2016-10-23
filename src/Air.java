@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-import com.sun.corba.se.impl.protocol.giopmsgheaders.Message;
 
 
 public class Air {
@@ -8,7 +7,6 @@ public class Air {
 	private ArrayList <Message> allMessages;
 	public ArrayList <Boat> boats;
 	public ArrayList <Buoy> buoys;
-	private int lockCutoff;
 
 	
 	public Air()
@@ -17,32 +15,43 @@ public class Air {
 		this.boats = new ArrayList <Boat>();
 		this.buoys = new ArrayList <Buoy>();
 		allMessages = new ArrayList <Message>();
-		lockCutoff = 0;
 	}
 	
 	private boolean canSeeMessage(Transmitter t, Message m){
-		
+		return (t.position.distance(m.sourcePosition) < m.getRange());
 	}
 
 	
 	public void getNewMessages()
 	{
 		allMessages.clear();
-		for (int i = 0; i < buoys.length; i++ )
+		ArrayList <Transmitter> allTransmitters = new ArrayList <Transmitter>();
+		allTransmitters.addAll(boats);
+		allTransmitters.addAll(buoys);
+		for (int i = 0; i < allTransmitters.size(); i++ )
 		{
-			allMessages.add(buoys[i]);
-		}
-		for (int i = 0; i < boats.length; i++ )
-		{
-			allMessages.add(boats[i]);
+			Message[] newMessages = buoys.get(i).send();
+			for (Message m : newMessages)
+			{
+				allMessages.add(m);
+			}
 		}
 	}
 	
 	public void sendMessages()
 	{
-		for (int i = 0; i < buoys.length; i++ )
+		ArrayList <Transmitter> allTransmitters = new ArrayList <Transmitter>();
+		allTransmitters.addAll(boats);
+		allTransmitters.addAll(buoys);
+		for (int i = 0; i < allTransmitters.size(); i++ )
 		{
-			
+			for (int j = 0; j < allMessages.size(); j++ )
+			{
+				if (canSeeMessage(allTransmitters.get(i), allMessages.get(j)))
+				{
+					allTransmitters.get(i).receive(allMessages.get(j));
+				}
+			}
 		}
 	}
 }

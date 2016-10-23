@@ -64,10 +64,6 @@ public class EventCreator {
 		for ( int i = 0 ; i< air.boats.size(); i++)
 		{
 		
-		if (  5 > Math.sqrt( Math.pow( (p1.getX()-air.boats.get(i).position.getX()),2)+
-				                     Math.pow((p1.getY()-air.boats.get(i).position.getY()),2)))
-			air.boats.;
-		
 			
 			
 			
