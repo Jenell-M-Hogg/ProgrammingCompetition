@@ -18,7 +18,7 @@ public class Air {
 	}
 	
 	private boolean canSeeMessage(Transmitter t, Message m){
-		return true;
+		return (t.position.distance(m.sourcePosition) < m.getRange());
 	}
 
 	
