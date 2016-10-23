@@ -7,7 +7,7 @@ import java.awt.Point;
 public abstract class Transmitter {
 	public Message[] messages = new Message[3];
 	
-	public Message[] send(Message message){
+	public Message[] send(){
 		return messages;
 	}
 
