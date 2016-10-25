@@ -11,13 +11,16 @@ public class Main {
 			for (int j = 0; j < k.air.buoys.size(); j++ )
 			{
 				Buoy b = k.air.buoys.get(j);
-				System.out.printf("Message for Buoy %i :\n");
+				System.out.printf("Message for Buoy %d :\n", j);
 				for (Message m : b.send()){
-					System.out.printf(m.message);
-					if (m.isEmergency) System.out.printf("THIS IS AN EMERGENCY");
+					if (m == null) continue;
+					System.out.print(m.message);
+					if (m.isEmergency) System.out.printf(" THIS IS AN EMERGENCY");
 					System.out.println();
 				}
 			}
+			System.out.println();
+			System.out.println();
 		}
 	}
 

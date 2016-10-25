@@ -69,17 +69,16 @@ public class EventCreator {
 		
 		Message msg = rand.nextInt(2)==1 ? strm : hurr; // randomly selct strm or hurr   
 		
+		System.out.print(msg.message);
+		
 		for ( int i = 0 ; i< air.boats.size(); i++)
 		{
-		
-			if (  5 > Math.sqrt( Math.pow( (p1.getX()-air.boats.get(i).position.getX()),2)+
-		
-				                     Math.pow((p1.getY()-air.boats.get(i).position.getY()),2)))
+
+			if ( p1.distance(air.boats.get(i).position) < 5)
 			air.boats.get(i).messages[0]= msg; // boats in range get msg 
 		
 			
-			if (  5 > Math.sqrt( Math.pow( (p1.getX()-air.buoys.get(i).position.getX()),2)+
-					                     Math.pow((p1.getY()-air.buoys.get(i).position.getY()),2)))
+			if ( p1.distance(air.buoys.get(i).position) < 5)
 				air.buoys.get(i).messages[0]= msg; // buoys in rng get msg 
 				
 			

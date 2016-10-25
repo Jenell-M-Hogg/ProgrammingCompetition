@@ -31,7 +31,9 @@ public class Message {
 	
 	private String generateMessage(String event, Point source){
 		//TODO
-		return null;
+		this.message = event;
+		//TODO
+		return event;
 	}
 	
 	
