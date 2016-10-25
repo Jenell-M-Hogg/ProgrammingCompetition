@@ -51,7 +51,6 @@ public class EventCreator {
 			int v_x=3  , v_y = 3; // boats' velocities  
 			Point p2 = new Point(v_x,v_y) ; // point for position 
 			
-			int v_x=3  , v_y = 3; // boats' velocities 
 			
 			air.boats.add( new Boat(p1,p2,String.valueOf(i),5) ); // create a boat
 			
