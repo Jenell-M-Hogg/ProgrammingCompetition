@@ -18,7 +18,8 @@ public class Air {
 	}
 	
 	private boolean canSeeMessage(Transmitter t, Message m){
-		return (t.position.distance(m.sourcePosition) < m.getRange());
+		System.out.println(t);
+		return (t.position.distance( m.sourcePosition ) < m.getRange());
 	}
 
 	
@@ -30,7 +31,7 @@ public class Air {
 		allTransmitters.addAll(buoys);
 		for (int i = 0; i < allTransmitters.size(); i++ )
 		{
-			Message[] newMessages = buoys.get(i).send();
+			Message[] newMessages = allTransmitters.get(i).send();
 			for (Message m : newMessages)
 			{
 				allMessages.add(m);

@@ -12,7 +12,7 @@ public class EventCreator {
 
 	Random rand = new Random();// randomness
 	
-	Air air = new Air(); 
+	public Air air = new Air(); 
 	int  buoys = 3;//rand.nextInt(10) + 1; // rand 1 to 10
 	int  boats = 1;//rand.nextInt(10) + 1; // rand 1 to 10
 	long bigrand = rand.nextInt(90)*30 + 100;
@@ -21,7 +21,11 @@ public class EventCreator {
 	public EventCreator(){
 		generateEvent(); // start a new simulation ( EVENT )  
 	}
-
+	
+	public void passTime(){
+		air.getNewMessages();
+		air.sendMessages();
+	}
 	
 	public void generateEvent() {
 		
