@@ -2,7 +2,7 @@ import java.awt.Point;
 
 public class Buoy extends Transmitter {
 	boolean needsMaintenance = false;
-	public Message[] messages = new Message[3];
+	
 
 	public Buoy(String id, int range, Point position){
 		this.id = id; 
